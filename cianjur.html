@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Cianjur - Pesona Alam Jawa Barat</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(30, 60, 114, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #4CAF50;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #3d8b40;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            border-radius: 20px 0 0 20px;
+        }
+
+        /* Destinasi Section */
+        .destinasi {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .destinasi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .destinasi-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .destinasi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .destinasi-img {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .destinasi-content {
+            padding: 20px;
+        }
+
+        .destinasi-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .destinasi-content p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        /* Fasilitas Section */
+        .fasilitas {
+            padding: 100px 0;
+        }
+
+        .fasilitas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .fasilitas-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .fasilitas-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .fasilitas-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .fasilitas-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Testimoni Section */
+        .testimoni {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .testimoni-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimoni-slide {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+
+        .testimoni-slide.active {
+            display: block;
+        }
+
+        .testimoni-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimoni-text:before, .testimoni-text:after {
+            content: '"';
+            font-size: 40px;
+            color: #4CAF50;
+            position: absolute;
+            opacity: 0.5;
+        }
+
+        .testimoni-text:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimoni-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimoni-author {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slider-dot.active {
+            background: #4CAF50;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #4CAF50;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-bg {
+                width: 100%;
+                opacity: 0.3;
+            }
+
+            .destinasi-grid, .fasilitas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Wisata<span>Cianjur</span></a>
+            <div class="mobile-menu">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#destinasi">Destinasi</a></li>
+                    <li><a href="#fasilitas">Fasilitas</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#kontak" class="btn">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Jelajahi Keindahan Alam Cianjur</h1>
+                <p>Temukan pesona tersembunyi Cianjur dengan pemandangan alam yang menakjubkan, budaya yang kaya, dan kuliner yang lezat.</p>
+                <a href="#destinasi" class="btn">Jelajahi Sekarang</a>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- Destinasi Section -->
+    <section class="destinasi" id="destinasi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Destinasi Populer</h2>
+                <p>Nikmati berbagai tempat wisata menarik yang ada di Cianjur</p>
+            </div>
+            <div class="destinasi-grid">
+                <div class="destinasi-card">
+                    <div class="destinasi-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="destinasi-content">
+                        <h3>Gunung Gede Pangrango</h3>
+                        <p>Nikmati keindahan alam pegunungan dengan udara sejuk dan pemandangan yang menakjubkan.</p>
+                        <a href="#" class="btn">Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="destinasi-card">
+                    <div class="destinasi-img" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="destinasi-content">
+                        <h3>Curug Cikondang</h3>
+                        <p>Air terjun yang mempesona dengan ketinggian 50 meter dikelilingi hutan yang asri.</p>
+                        <a href="#" class="btn">Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="destinasi-card">
+                    <div class="destinasi-img" style="background-image: url('https://images.unsplash.com/photo-1559827291-72ee739d0d9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="destinasi-content">
+                        <h3>Kebun Teh</h3>
+                        <p>Hamparan kebun teh yang hijau dan luas, cocok untuk refreshing dan berfoto.</p>
+                        <a href="#" class="btn">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Section -->
+    <section class="fasilitas" id="fasilitas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fasilitas Wisata</h2>
+                <p>Kami menyediakan berbagai fasilitas untuk kenyamanan Anda</p>
+            </div>
+            <div class="fasilitas-grid">
+                <div class="fasilitas-item">
+                    <div class="fasilitas-icon">🏨</div>
+                    <h3>Penginapan Nyaman</h3>
+                    <p>Berbagai pilihan penginapan dengan fasilitas lengkap</p>
+                </div>
+                <div class="fasilitas-item">
+                    <div class="fasilitas-icon">🍽️</div>
+                    <h3>Kuliner Khas</h3>
+                    <p>Nikmati kelezatan kuliner khas Cianjur yang autentik</p>
+                </div>
+                <div class="fasilitas-item">
+                    <div class="fasilitas-icon">🚗</div>
+                    <h3>Transportasi</h3>
+                    <p>Kemudahan akses transportasi menuju lokasi wisata</p>
+                </div>
+                <div class="fasilitas-item">
+                    <div class="fasilitas-icon">🗺️</div>
+                    <h3>Pemandu Wisata</h3>
+                    <p>Pemandu berpengalaman untuk pengalaman terbaik</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section class="testimoni" id="testimoni">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Pengunjung</h2>
+                <p>Apa kata mereka tentang pengalaman berwisata di Cianjur</p>
+            </div>
+            <div class="testimoni-slider">
+                <div class="testimoni-slide active">
+                    <div class="testimoni-text">
+                        Pengalaman yang tak terlupakan! Pemandangan alam Cianjur benar-benar menakjubkan. Udara sejuk dan pemandangan hijau membuat saya ingin kembali lagi.
+                    </div>
+                    <div class="testimoni-author">- Rina Wijaya, Jakarta</div>
+                </div>
+                <div class="testimoni-slide">
+                    <div class="testimoni-text">
+                        Saya sangat terkesan dengan keramahan penduduk lokal dan keindahan alam Cianjur. Curug Cikondang adalah tempat yang wajib dikunjungi!
+                    </div>
+                    <div class="testimoni-author">- Andi Pratama, Bandung</div>
+                </div>
+                <div class="testimoni-slide">
+                    <div class="testimoni-text">
+                        Perjalanan ke Gunung Gede Pangrango memberikan pengalaman mendaki yang menantang namun menyenangkan. Pemandangan dari puncak sangat memukau.
+                    </div>
+                    <div class="testimoni-author">- Sari Dewi, Surabaya</div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Siap Menjelajahi Cianjur?</h2>
+            <p>Jangan lewatkan kesempatan untuk menikmati keindahan alam Cianjur. Rencanakan perjalanan Anda sekarang!</p>
+            <a href="#kontak" class="btn">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Wisata Cianjur</h3>
+                    <p>Menjadi destinasi wisata alam terbaik di Jawa Barat dengan berbagai keindahan alam dan budaya yang menarik.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#destinasi">Destinasi</a></li>
+                        <li><a href="#fasilitas">Fasilitas</a></li>
+                        <li><a href="#testimoni">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <ul>
+                        <li>Email: info@wisatacianjur.com</li>
+                        <li>Telepon: (0263) 123456</li>
+                        <li>Alamat: Jl. Siliwangi No. 123, Cianjur</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Media Sosial</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Wisata Cianjur. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Testimonial Slider
+        const slides = document.querySelectorAll('.testimoni-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        // Auto slide change
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Dot click event
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
